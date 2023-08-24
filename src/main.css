@@ -1,0 +1,52 @@
+.NavBar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(255, 221, 148);
+    border-radius: 20px;
+}
+.CartWidget {
+    display: flex;
+}
+.BotonCategorias{
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+}
+.CategoriasIcon {
+    display: flex !important;
+    padding: 5px;
+}
+.greeting {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    max-width: 95%;
+    padding: 10px;
+    border: 2px;
+    background-color: aliceblue;
+    border-color:rgb(255, 221, 148);
+    border-radius: 10px;
+    text-decoration: double;
+}
+.logo{
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: row !important;
+}
+.divGreeting{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.BsFillGridFill{
+    padding: 5px;
+}
+.BsCart4{
+    padding: 5px;
+}
+.GiBearFace{
+    padding: 5px;
+}
