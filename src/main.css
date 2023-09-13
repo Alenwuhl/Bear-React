@@ -50,3 +50,39 @@
 .GiBearFace{
     padding: 5px;
 }
+.containerProduct{
+    gap: 20px;
+    justify-content: space-between;
+    margin: 20px;
+    width: 1200px;
+    border-radius: 10px;
+}
+.gridDiv{
+    display: table-column-group;
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+}
+.Cardstyle {
+    max-width: 500px; 
+    margin-bottom: 20px; 
+}
+.chakra-card.Cardstyle.css-t3blsc{
+    background-color: rgb(255, 221, 148);
+}
+.chakra-card__footer{
+    background-color: rgb(253, 232, 187);
+}
+.chakra-button__group{
+    background-color: antiquewhite;
+}
+.logo-content {
+    display: flex;
+    align-items: center;
+}
+  .GiBearFace,
+  .logo-text {
+    padding: 5px;
+}
+  .logo-text {
+    font-weight: bold;
+}

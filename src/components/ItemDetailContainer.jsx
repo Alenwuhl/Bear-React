@@ -1,11 +1,8 @@
 import React from 'react'
-import '../main.css'
-import ItemList from './ItemList'
-import { useParams } from 'react-router-dom'
+import ItemDetail from "./ItemDetail"
 
-const ItemListContainer = () => {
-    const { categoria } = useParams()
-
+const ItemDetailContainer = () => {
+    
     const productos = [
         { id: 1, nombre: "Teddy", descripcion: "Los buzos mas suaves y calentitos del país!", stock: 5, categoria: "Buzos" },
         { id: 2, nombre: "Remera XL", descripcion: "La tela más cómoda y la remera más cool del mercado!", stock: 10, categoria: "Remeras" },
@@ -20,31 +17,29 @@ const ItemListContainer = () => {
       ]
     
     const getProductos = new Promise ((resolve, reject) => {
-        if (productos.length > 0) {
+        if (productos.leght > 0) {
             setTimeout(() => {
                 resolve(productos)
-            }, 2000)
-        } else {
-            reject(new Error("No hay productos."))
+            }, 3000)
+        }else{
+            reject(new Error("No hay productos"))
         }
-    })
+      })
 
     getProductos
-        .then((res) => {
-            productos
-            console.log(res)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-    
-    const filteredProducts = productos.filter((producto) => producto.categoria === categoria)
-    
-    return (
-        <div className='gridDiv'>
-            <ItemList productos={categoria ? filteredProducts : productos} />
-        </div>
+      .then((res) =>{
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+
+    return(
+        <>
+            <ItemDetail
+                productos={productos}
+            />
+        </>
     )
 }
 
-export default ItemListContainer
+export default ItemDetailContainer

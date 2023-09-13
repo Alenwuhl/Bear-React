@@ -7,19 +7,24 @@ import {
   } from '@chakra-ui/react'
 import CartWidget from './CartWidget'
 import '../main.css'
-import { BsFillGridFill } from 'react-icons/bs';
-import { GiBearFace } from 'react-icons/gi';
+import { BsFillGridFill } from 'react-icons/bs'
+import { GiBearFace } from 'react-icons/gi'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
   return (
     <div className='NavBar'>
         <div className='logo'>
-            <div className='GiBearFace'>
-                <GiBearFace/>
-            </div>
-            <div>
+            <Link to={"/"}>
+            <div className='logo-content'>
+                <div className='GiBearFace'>
+                <GiBearFace />
+                </div>
+                <div className='logo-text'>
                 Bear-uy
+                </div>
             </div>
+            </Link>
         </div>
         <Menu className= "Categorias">
             <MenuButton className='BotonCategorias'>
@@ -31,13 +36,27 @@ const NavBar = () => {
                 </div>
             </MenuButton>
             <MenuList>
-                <MenuItem>Categoría A</MenuItem>
-                <MenuItem>Categoría B</MenuItem>
-                <MenuItem>Categoría C</MenuItem>
+                <MenuItem>
+                    <Link to={`/categoria/${"Buzos"}`}>
+                        Buzos
+                    </Link>
+                </MenuItem>
+                <MenuItem>
+                    <Link to={`/categoria/${"Remeras"}`}>
+                        Remeras
+                    </Link>
+                </MenuItem>
+                <MenuItem>
+                    <Link to={`/categoria/${"Camisas"}`}>
+                        Camisas
+                    </Link>
+                </MenuItem>
             </MenuList>
         </Menu>
         <div className='CarritoIcon'>
-            <CartWidget />
+            <Link to={"/cart"}>
+                <CartWidget />
+            </Link>
         </div>
     </div>
   )
