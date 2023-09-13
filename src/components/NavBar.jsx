@@ -16,14 +16,14 @@ const NavBar = () => {
     <div className='NavBar'>
         <div className='logo'>
             <Link to={"/"}>
-            <div className='logo-content'>
-                <div className='GiBearFace'>
-                <GiBearFace />
+                <div className='logo-content'>
+                    <div className='GiBearFace'>
+                    <GiBearFace />
+                    </div>
+                    <div className='logo-text'>
+                    Bear-uy
+                    </div>
                 </div>
-                <div className='logo-text'>
-                Bear-uy
-                </div>
-            </div>
             </Link>
         </div>
         <Menu className= "Categorias">

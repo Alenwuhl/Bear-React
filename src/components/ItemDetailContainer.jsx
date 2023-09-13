@@ -17,7 +17,7 @@ const ItemDetailContainer = () => {
       ]
     
     const getProductos = new Promise ((resolve, reject) => {
-        if (productos.leght > 0) {
+        if (productos.lenght > 0) {
             setTimeout(() => {
                 resolve(productos)
             }, 3000)
@@ -28,6 +28,7 @@ const ItemDetailContainer = () => {
 
     getProductos
       .then((res) =>{
+        console.log(res)
       })
       .catch((error) => {
         console.log(error)
