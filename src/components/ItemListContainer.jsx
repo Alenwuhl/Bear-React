@@ -1,50 +1,47 @@
 import React from 'react'
 import '../main.css'
 import ItemList from './ItemList'
-import { useParams } from 'react-router-dom'
+import {useParams} from 'react-router-dom'
+import {useEffect, useState} from 'react'
+import {collection, getDocs, getFirestore} from 'firebase/firestore'
+import Loading from './Loading'
 
 const ItemListContainer = () => {
-    const { categoria } = useParams()
+    const categoria = useParams().categoria
+    const [productos, setProductos] = useState([])
+    const [Nombre, setNombre] = useState("Productos")
 
-    const productos = [
-        { id: 1, nombre: "Teddy", descripcion: "Los buzos mas suaves y calentitos del país!", stock: 5, categoria: "Buzos" },
-        { id: 2, nombre: "Remera XL", descripcion: "La tela más cómoda y la remera más cool del mercado!", stock: 10, categoria: "Remeras" },
-        { id: 3, nombre: "Camisa a cuadros", descripcion: "Buscas una camisa abrigada? Aquí está lo que necesitas.", stock: 15, categoria: "Camisas" },
-        { id: 4, nombre: "Buzo Jogging", descripcion: "Más fachero que estos no encontrarás. Si quieres ponerte a la moda, los mejores buzos de uso cotidiano", stock: 20, categoria: "Buzos" },
-        { id: 5, nombre: "Camisa a rayas", descripcion: "Una camisa a rayas clásica para cualquier ocasión", stock: 8, categoria: "Camisas" },
-        { id: 6, nombre: "Remera Estampada", descripcion: "Remera con estampados únicos y atractivos", stock: 12, categoria: "Remeras" },
-        { id: 7, nombre: "Buzo Deportivo", descripcion: "Perfecto para tus actividades deportivas y al aire libre", stock: 6, categoria: "Buzos" },
-        { id: 8, nombre: "Camisa Casual", descripcion: "Una camisa versátil para tu uso diario", stock: 25, categoria: "Camisas" },
-        { id: 9, nombre: "Remera de Manga Larga", descripcion: "Ideal para mantener el calor en los días frescos", stock: 18, categoria: "Remeras" },
-        { id: 10, nombre: "Buzo Elegante", descripcion: "Un buzo elegante para ocasiones especiales", stock: 10, categoria: "Buzos" }
-      ]
-    
-    const getProductos = new Promise ((resolve, reject) => {
-        if (productos.length > 0) {
-            setTimeout(() => {
-                resolve(productos)
-            }, 2000)
-        } else {
-            reject(new Error("No hay productos."))
-        }
-    })
 
-    getProductos
-        .then((res) => {
-            productos
-            console.log(res)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-    
-    const filteredProducts = productos.filter((producto) => producto.categoria === categoria)
-    
-    return (
-        <div className='gridDiv'>
-            <ItemList productos={categoria ? filteredProducts : productos} />
-        </div>
-    )
+useEffect(() => {
+     const db = getFirestore()
+     const itemsCollection = collection(db, `Bear`)
+     getDocs(itemsCollection).then((snapshot)=> {
+        const docs = snapshot.docs.map((doc) => 
+        ({
+          ...doc.data(), id: doc.id
+        }))
+        setTimeout(() => {
+          setProductos(docs)
+        }, 1500);
+     })
+}, [])
+let productToRender= []
+
+
+if(categoria == undefined){
+  productToRender = productos
+}else{
+  productToRender = (productos.filter(prod => prod.Categoria === categoria))
 }
-
+  return (
+    productos.length === 0 ? <Loading/> :
+    <div>
+      {
+          <div>
+            <ItemList productos={productToRender} Nombre={Nombre} />
+          </div>
+      }
+    </div>
+  )
+}
 export default ItemListContainer
