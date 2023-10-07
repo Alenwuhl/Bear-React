@@ -27,15 +27,6 @@ const Item = ({ producto }) => {
         </div>
       </div>
     </div>
-    /*<Card className='Cardstyle' maxW='sm'>
-        <img src={producto.imagen} alt={producto.titulo} />
-            <h4>{producto.Nombre}</h4>
-            <p>Precio: ${producto.Precio}</p>
-            <p>Categoría: {(producto.Categoria)}</p>
-            <Button variant='solid' colorScheme='blue'>
-                <Link to={`/item/${producto.id}`}>Ver más</Link>
-            </ Button>
-    </Card>*/
   )
 }
 

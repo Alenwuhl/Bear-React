@@ -10,12 +10,8 @@ const ShoppingCartProvider = ({ children }) => {
 
     const agregarAlCarrito = (producto, cantidad) => {
         const productoAgregado = { ...producto, cantidad };
-        console.log(cantidad)
-        console.log(productoAgregado)
-        console.log(productoAgregado.id)
 
         const nuevoCarrito = [...cart];
-        console.log(nuevoCarrito)
         const estaEnElCarrito = nuevoCarrito.find((producto) => producto.id === productoAgregado.id);
 
         if (estaEnElCarrito) {

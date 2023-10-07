@@ -29,7 +29,6 @@ const Form = () => {
         }
         
     } 
-console.log(cart)
     const order = {
         buyer:{
             nombre, email
