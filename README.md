@@ -7,4 +7,5 @@ Librerias usadas:
 - Bootstrap
 - https://bbbootstrap.com/
 
-
+GIF:
+https://github.com/Alenwuhl/Gif.git
