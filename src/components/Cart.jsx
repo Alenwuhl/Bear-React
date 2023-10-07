@@ -21,7 +21,7 @@ const Cart = () => {
             </div>
             {cart.map((prod, index) =>
               <div key={index} className="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 px-3 rounded">
-                <div className="mr-1"><img className="rounded" src="https://i.imgur.com/XiFJkhI.jpg" width="70"></img></div>
+                <div className="mr-1"><img className="rounded" src={prod.Image} width="70"></img></div>
                 <div className="d-flex flex-column align-items-center product-details"><span className="font-weight-bold">{prod.Nombre}</span>
                 </div>              <div>
                   <h5 className="text-grey">${prod.Precio}</h5>
